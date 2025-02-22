@@ -33,7 +33,10 @@ def insert_data(platform, product_name, price):
 
 def scrape_amazon(search_term):
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+
+    # If an error occurs during scraping, try commenting out this line of code.
+    chrome_options.add_argument('--headless') 
+    
     chrome_options.add_argument('--disable-gpu') 
     browser = webdriver.Chrome(service=ChromeService(), options=chrome_options)
     browser.get("https://www.amazon.fr/")
